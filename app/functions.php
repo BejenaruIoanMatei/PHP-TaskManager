@@ -11,3 +11,18 @@ function dd($value)
 
     die();
 }
+
+function view($path, $attributes = []) 
+{
+    extract($attributes);
+    $fullpath = BASE_PATH . '/app/views/' . $path;
+
+    if (!file_exists($fullpath))
+    {
+        echo "EROARE: This view does not exist.<br>";
+        exit;
+    }
+
+    require $fullpath;
+
+}
